@@ -1,32 +1,67 @@
 package com.bridgelabz.addressbook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
-	public static void main(String[] args) {
+	String firstName;
+	String lastName;
+	String address;
+	String city;
+	String state;
+	long zip;
+	long phoneNumber;
+	String email;
+	
+	Scanner scan = new Scanner(System.in);
+	ArrayList<Contact> contactBook = new ArrayList<>();
+	
+	public void getContact() {
+		System.out.println("How Many Contacts You Want To Add: ");
+		int n = scan.nextInt();
+		for(int i=0;i<n;i++) {
+			
+		System.out.print(" Please enter the first name: ");
+		firstName = scan.next();
 		
-		System.out.println("Welcome to Address Book");
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the details of person");
-		System.out.println("Enter the first name");
-		String firstName = sc.nextLine();
-		System.out.println("Enter the last name");
-		String lastName = sc.nextLine();
-		System.out.println("Enter the address");
-		String address = sc.nextLine();
-		System.out.println("Enter the city name");
-		String city = sc.nextLine();
-		System.out.println("Enter the state name");
-		String state = sc.nextLine();
-		System.out.println("Enter the ZIP code");
-		int zip = sc.nextInt();
-		sc.nextLine();
-		System.out.println("Enter the phone number");
-		long phoneNumber = sc.nextLong();
-		sc.nextLine();
-		System.out.println("Enter the email");
-		String email = sc.nextLine();
-		Contact contact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-																											
+		System.out.print(" Please enter the last name: ");
+		lastName = scan.next();
+		
+		System.out.print(" Please enter the address: ");
+		address = scan.next();
+		
+		System.out.print(" Please enter the city: ");
+		city = scan.next();
+		
+		System.out.print(" Please enter the state: ");
+		state = scan.next();
+		
+		System.out.print(" Please enter the zip: ");
+		zip = scan.nextLong();
+		
+		System.out.print(" Please enter the phone number: ");
+		phoneNumber = scan.nextLong();
+		
+		System.out.print(" Please enter the email: ");
+		email = scan.next();
+		System.out.println("\n");
+		
+		Contact contact = new Contact(firstName,lastName,address,city,state,zip,phoneNumber,email);
+		contactBook.add(contact);
+		}
+	}
+
+	public void display() {
+		System.out.println("------Contacts in Addrees Book------");
+		for (Contact person : contactBook) {
+			System.out.println(person.toString());
+		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("------Welcome TO AddressBook------");
+		AddressBookMain address = new AddressBookMain();
+		address.getContact();
+		address.display();
 	}
 }
