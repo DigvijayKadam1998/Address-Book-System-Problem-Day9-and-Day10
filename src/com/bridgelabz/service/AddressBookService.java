@@ -1,7 +1,8 @@
-package com.bridgelabz.addressbook;
+package com.bridgelabz.service;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import com.bridgelabz.entity.Contact;
 
 public class AddressBookService {
 	String firstName;
@@ -139,6 +140,22 @@ public class AddressBookService {
 				break;
 			} else {
 				continue;
+			}
+		}
+	}
+
+	public void find() {
+		System.out.print("Enter first Name to Find Contact:- ");
+		String findByFirstName = scan.next();
+
+		for (int i = 0; i < contactBook.size(); i++) {
+			String Finding_FirstName = contactBook.get(i).getFirstName();
+
+			if (findByFirstName.equals(Finding_FirstName)) {
+				System.out.println("\n---Contatct Found---.");
+				break;
+			} else {
+				System.out.println("\n---Contact Not Found---\n");
 			}
 		}
 	}

@@ -1,7 +1,7 @@
-package com.bridgelabz.addressbook;
+package com.bridgelabz.controller;
 
-import java.util.ArrayList;
 import java.util.Scanner;
+import com.bridgelabz.service.AddressBookService;
 
 public class AddressBookMain {
 	public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class AddressBookMain {
 		AddressBookService address = new AddressBookService();
 
 		while (true) {
-			System.out.println("1.Add\n2.Edit\n3.Delete\n");
+			System.out.println("1.Add\n2.Edit\n3.Delete\n4.Find");
 			System.out.print("Select Your Option: ");
 			int option = scan.nextInt();
 
@@ -27,7 +27,10 @@ public class AddressBookMain {
 				address.delete();
 				address.display();
 				break;
-			
+			case 4:
+				address.find();
+				address.display();
+				break;
 			}
 		}
 	}
